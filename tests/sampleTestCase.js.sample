@@ -1,0 +1,112 @@
+
+
+var global = this;
+
+describe('test function scope', function() {
+
+    describe('test var defined', function() {
+        it('it should be 2', function() {
+            var blat = 2;
+            expect(blat).toBe(2);
+        });
+    });
+
+
+    describe('test scope', function() {
+        it('it should be undefined', function() {
+          function sum(){
+            var i = 'bob';
+            var l;
+
+          return i;
+
+          } 
+          var myvar = sum(1, 2, 3, 4, 5);
+          expect(myvar).toBe('bob');
+ 
+        });
+    });
+
+
+
+    describe('global object', function() {
+        it('test window should be global object', function() {
+  
+          expect(global).toBe(window);
+          expect(global.window).toBe(windowd);
+          expect(window.window).toBe(window);
+
+        });
+    });
+
+});
+
+
+
+
+describe('test adderTest', function() {
+
+    it('it should add or subtract one from arg', function() {
+        var inc = adder(1);
+        var dec = adder(-1);
+
+        expect(inc(2)).toBe(3);
+        expect(dec(4)).toBe(3);
+        expect(inc(dec(3))).toBe(3);
+    });
+
+});
+
+describe('test trim', function() {
+
+    it('it should be a function', function() {
+      var trimType = typeof 'bob'.trim;
+      expect(trimType).toBe('function');
+
+    });
+
+});
+
+
+describe('test this', function() {
+
+    it('test should implicitly bind to object', function() {
+      expect(12).toBe(circle.diameter());
+      //delete window.circle.radius;
+      expect(window.circle.radius).toBe(6);
+      window.circle.bob = 6;
+      expect(window.circle.bob).toBe(6);
+    });
+
+
+describe('test call ', function() {
+
+    it('circle.diameter should return 15', function() {
+      expect(circle.diameter.call({radius:5})).toBe(10);
+     
+    });
+  });
+
+
+
+      it('test should implicitly bind to global object', function() {
+        var myDiameter = circle.diameter;
+        //expect(myDiameter().toBeNaN());
+        var myDiameterType = typeof myDiameter;
+        expect(myDiameterType).toBe('function');
+        radius = 2;
+        expect(myDiameter()).toBe(4);
+    });
+
+describe('test implicit this', function() {
+
+    it('it should return [1, 2, 3]', function() {
+      var concatArgs = addToArray([1 ,2, 3]);
+      expect(concatArgs).toBe([1, 2, 3]);
+
+    });
+
+});
+
+
+});

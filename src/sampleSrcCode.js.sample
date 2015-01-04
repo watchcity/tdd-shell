@@ -1,0 +1,34 @@
+function adder(base){
+  return function(num){
+    return base + num;
+  };
+}
+
+function addToArray(){
+  var targetArr = arguments[0];
+  arguments.slice = Array.prototype.slice;
+  var add = arguments.slice(1);
+
+  return targetArr.concat(add);
+}
+
+Boolean.prototype.not = function(){
+  return !this;
+}
+
+
+var trim;
+
+if (!String.prototype.trim){
+  String.prototype.trim = function trim(){
+    return this.replace(/^\s+|\s+$/g, "");
+  };
+}
+
+var circle = {
+  radius: 6,
+
+  diameter: function(){
+    return this.radius * 2;
+  }
+};

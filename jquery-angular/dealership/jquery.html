@@ -1,0 +1,42 @@
+<html>
+<head>
+	<title>Dealership</title>
+	<script src="lib/jquery.min.js"></script>
+	<script src="js/controllers/dealership.js"></script>
+</head>
+<body ng-app="dealershipApp" id="ng-app">
+	<div id="wrapper">
+		<div id="car-dealership">
+			<form method="post" action="" id="dealership-form">
+				<label>Manufacturer
+					<select name="manufacturer" id="manufacturer">
+						<option value="ford">Ford</option>
+						<option value="toyota">Toyota</option>
+					</select>
+				</label>
+				<fieldset class="manufacturer" id="ford">
+					<label>Ford</label>
+					<select name="model">
+						<option value="Mustang">Mustang</option>
+						<option value="F150">F-150</option>
+					</select>
+				</fieldset>
+				<fieldset class="manufacturer" id="toyota">
+					<label>Toyota</label>
+					<select name="model">
+						<option value="Corolla">Corolla</option>
+						<option value="Camry">Camry</option>
+					</select>
+				</fieldset>
+				<label>Miles
+					<input type="text" name="miles" id="miles">
+				</label>
+
+				<input type="submit" value="Submit">
+
+				<p>Your desired price: <span id="price"></span></p>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<html>
+<head>
+	<title>Dealership</title>
+	<script src="lib/angular.min.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/controllers/dealershipCtrl.js"></script>
+</head>
+<body ng-app="dealershipApp" id="ng-app">
+	<div id="wrapper">
+		<div id="car-dealership" ng-controller="dealershipCtrl">
+			<form method="post" action="" ng-submit="onFormSubmit($event)" id="dealership-form">
+				<label>Manufacturer
+					<select name="manufacturer" id="manufacturer" ng-model="manufacturer">
+						<option value="Ford">Ford</option>
+						<option value="Toyota">Toyota</option>
+					</select>
+				</label>
+				<fieldset ng-show="isManufacturer('Ford')">
+					<label>Ford</label>
+					<select name="model" id="model" ng-model="model">
+						<option value="Mustang">Mustang</option>
+						<option value="F150">F-150</option>
+					</select>
+				</fieldset>
+				<fieldset ng-show="isManufacturer('Toyota')">
+					<label>Toyota</label>
+					<select name="model" id="model" ng-model="model">
+						<option value="Corolla">Corolla</option>
+						<option value="Camry">Camry</option>
+					</select>
+				</fieldset>
+				<label>Miles
+					<input type="text" name="miles" id="miles" ng-model="miles">
+				</label>
+
+				<input type="submit" value="Submit">
+
+				<p>Your desired price: {{price}}</p>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

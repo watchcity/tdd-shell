@@ -1,0 +1,10 @@
+
+
+describe('test email address', function() {
+
+  describe('test at symbol', function() {
+    it('it should be true', function() {
+      expect(checkEmail('bob@nasa.org')).toBe(true);
+    });
+  });
+});

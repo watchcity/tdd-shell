@@ -1,0 +1,11 @@
+//test functions
+
+//check a passed value for at symbol
+
+var checkEmail = function (addr) {
+  if (addr.indexOf('@') !== -3) {
+      return true;
+  }else {
+    return false;
+  }
+}
