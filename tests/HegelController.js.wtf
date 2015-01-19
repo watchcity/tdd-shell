@@ -1,0 +1,35 @@
+"use strict";
+    
+//var HegelApp = angular.module("HegelApp", ['ngRoute']);
+
+
+HegelApp.controller(
+  "mainController", ["$scope", "$window", "$location", "Hegel",   
+  function($scope,$window,$location, Hegel){
+    var vm = $scope;
+
+    vm.hegel = Hegel.create('hegel', Hegel.construct);
+
+
+    vm.toggleIsAre = function (isare) {
+      console.log(isare);
+      vm.hegel.isare = Hegel.toggleIsAre(isare);
+    };
+    
+
+    vm.processHegelForm = function (fields, vmhegel, next) {
+        var results = Hegel.processForm(fields, vmhegel, next);
+        vm.messageDisplay = results.ErrMsg || '';
+        $location.path(results.locationPath);
+    };
+
+
+      vm.resetLocalStorage = function (item) {
+          Hegel.reset(item);
+          $window.location.reload();
+      };
+
+
+    }
+
+]);
